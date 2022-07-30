@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cat >TestData
+chmod u+x TestData
+./TestData
+rm TestData
+

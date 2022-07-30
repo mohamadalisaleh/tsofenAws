@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -d $1 ]
+then    
+        echo "no dir with name $1 and directory is created !!"
+        mkdir $1 
+else
+        echo "file exist"
+fi
+

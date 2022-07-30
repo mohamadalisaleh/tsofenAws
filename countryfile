@@ -1,0 +1,24 @@
+#!/bin/bash
+
+read var1
+
+if [   $var1 == "israel" ]
+then
+	echo "The Capital city : jerusalem"
+fi
+if [  $var1 == "spain" ]
+then 
+	echo "The Capital city : Madrid"
+fi
+if [  $var1 == "portugal" ]
+then
+	echo "The Capital city : Lisbon"
+fi
+if [ $var1 == "USA" ]
+then
+	echo "The Capital city : Canada"
+fi
+if [ $var1 == "france" ]
+then
+	echo "The Capital city : Paris"
+fi
