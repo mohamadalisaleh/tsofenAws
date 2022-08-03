@@ -1,0 +1,16 @@
+#!/bin/bash
+
+count=1
+
+while [ $count != 0 ]
+do
+	read p 
+for i in $(ls)
+do
+	if [ $p = $i ]
+	then
+		echo $i "is exist"
+		count=0
+fi
+done
+done
