@@ -1,0 +1,11 @@
+#!/bin/bash	
+
+read p
+rmdir $p
+if [ -d $p ]; then
+    cd $p
+    rm -r *
+    cd ..
+fi
+rmdir $p
+echo "Success to delete the directory!"
