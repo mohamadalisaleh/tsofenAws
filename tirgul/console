@@ -1,0 +1,30 @@
+#!/bin/bash	
+
+ 
+for (( ; ; ))
+do
+	echo "you can only run these Command:"
+	echo "ls"
+	echo "pwd"
+	echo "free"
+	echo "exit"
+	sleep 1
+read ch	
+		if [ $ch == ls ]
+		then
+			echo $(ls)
+		fi
+		if [ $ch == pwd ]
+		then
+			echo $(pwd)
+		fi
+		if [ $ch == free ]
+		then
+			 free
+		fi
+		if [ $ch == exit ]
+		then
+			echo "Have a nice day"
+		break
+		fi
+done

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ch=$1
+
+if [ $ch == start ]
+then
+	echo "$$"
+fi
+if [ $ch == stop ]
+then
+ 	kill -n signum
+	echo "process stop"
+fi
+if [ $ch ==  ] 
+then 
+	echo "bad argument"
+fi 

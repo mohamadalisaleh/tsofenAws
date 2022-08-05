@@ -1,0 +1,17 @@
+#!/bin/bash
+
+var=$1
+a=$2
+b=$3
+c=$4
+
+if [ $var == + ]
+then  
+ 	 echo $a+$b+$c | bc
+fi 
+if [ $var == - ]
+then
+	echo $a-$b-$c | bc 
+fi
+
+
