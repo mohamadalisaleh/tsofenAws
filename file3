@@ -1,0 +1,9 @@
+echo  "enter word"
+read word
+if [[ $word < "telephone" ]]
+then
+      echo " $word is before telephone"
+else
+      echo "$word is after telephone"
+fi
+
