@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<?php
+
+use Aws\S3\S3Client
+use Aws\S3\Exception\S3Exception
+
+$config = require('config.php')
+
+$s3 = S3Client::factory([
+	'key'=>$config['s3']['key'],
+	'secret'=>$config['s3']['secret']
+	]);
+
+if(isset($_FILES['file'])){
+
+	$file = $_FILES['file'];
+	$name = $file['name'];
+	$tmp_name = $file['tmp_name'];
+
+	$extension = explode('.',$name);
+	$extension = strtolower(end($extension));
+
+	$key = md5(uniqid())
+	$tmp_file_name = "{$key}.{$extension}";
+	$tmp_file_path = "{$tmp_file_name}";
+
+	move_uploaded_file($tmp_name , $tmp_file_path);
+
+
+	try{
+
+	$s3->putObject([
+		'Bucket' => $config['s3']['bucket'],
+		'Key' => "{$name}",
+		'Body' => fopen($tmp_file_path , 'rb'),
+		'ACL' => 'public-read'
+		]);		
+	
+		unlink($tmp_file_path);	
+
+	}catch(S3Exception $e){
+		
+		die("Error to upload file");
+		}
+}
+?>
+<form action="" method="POST enctype="multipart/form-data">
+<input type="file" name="file">
+<input type="submit" value="upload">
+</form>
+</body>
+</html> 
+
